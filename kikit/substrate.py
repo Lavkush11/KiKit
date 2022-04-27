@@ -386,8 +386,11 @@ def commonCircle(a, b, c):
     Given three 2D points return (x, y, r) of the circle they lie on or None if
     they lie in a line
     """
-    # We use the KiCAD's API implementation as it seems faster
-    return commonCircleKiCAD(a, b, c)
+    # We use the KiCAD's API implementation as it seems faster, but v5 doesn't
+    # offer it
+    if isV6():
+        return commonCircleKiCAD(a, b, c)
+    return commonCirclePython(a, b, c)
 
 
 def liesOnSegment(start, end, point, tolerance=fromMm(0.01)):
