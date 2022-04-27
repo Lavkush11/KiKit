@@ -241,7 +241,7 @@ def doPanelization(input, output, preset):
 
     ki.buildDebugAnnotation(preset["debug"], panel)
 
-    panel.save()
+    panel.save(reconstructArcs=preset["post"]["reconstructarcs"])
 
 
 @click.command()
@@ -292,7 +292,7 @@ def separate(input, output, source, page, debug, keepannotations):
         ki.positionPanel(preset["page"], panel)
         ki.setPageSize(preset["page"], panel, board)
 
-        panel.save()
+        panel.save(reconstructArcs=True)
     except Exception as e:
         import sys
         sys.stderr.write("An error occurred: " + str(e) + "\n")

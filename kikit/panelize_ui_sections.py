@@ -421,6 +421,9 @@ POST_SECTION = {
     "millradius": SLength(
         always(),
         "Simulate milling operation"),
+    "reconstructarcs": SBool(
+        always(),
+        "Try to reconstruct arcs"),
     "script": SStr(
         always(),
         "Specify path to a custom postprocessing script"),
